@@ -77,7 +77,7 @@
 %% Работа должна быть выполнена ... размером шрифта 12-14 пунктов (ГОСТ Р 7.0.11-2011, 5.3.8). То есть не должно быть надписей шрифтом более 14. Так и поставим.
 %% Эти установки будут давать одинаковый результат независимо от выбора базовым шрифтом 12 пт или 14 пт
 \titleformat{\chapter}[block]                                % default display;  hang = with a hanging label. (Like the standard \section.); block = typesets the whole title in a block (a paragraph) without additional formatting. Useful in centered titles
-        {\hdngalign\fontsize{14pt}{16pt}\selectfont\bfseries}% 
+        {\hdngalign\fontsize{16pt}{20pt}\selectfont\bfseries}% 
         %\fontsize{<size>}{<skip>} % второе число ставим 1.2*первое, чтобы адекватно отрабатывали команды по расчету полуторного интервала (домножая разные комбинации коэффициентов на этот)
         {\thechapter\cftchapaftersnum}                       % Заголовки в оглавлении должны точно повторять заголовки в тексте (ГОСТ Р 7.0.11-2011, 5.2.3).
         {0em}% отступ от номера до текста

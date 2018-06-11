@@ -1,0 +1,31 @@
+@startuml
+!definelong episode(name,st,dr,en)
+class "name" << (E,#FFAAAA) Episode >> {
+start = st
+duration = dr
+end = en
+}
+!enddefinelong
+title Time = 0
+mix_interface String
+package "hello" <<Cloud>> {
+package "hello.String" {
+episode("Hello", "0","\u221e","\u221e" )
+}
+}
+hello.String -.- String
+package "world" <<Cloud>> {
+package "world.String" {
+episode("World!", "0","\u221e","\u221e" )
+}
+}
+world.String -.- String
+package "result" <<Cloud>> {
+package "result.String" {
+}
+}
+result.String -.- String
+class "printer"
+hello.String --> printer : t= 5
+world.String --> printer : t= 10/13
+@enduml

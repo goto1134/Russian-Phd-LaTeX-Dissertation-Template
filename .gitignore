@@ -145,3 +145,4 @@ pythontex-files-*/
 # endfloat
 *.ttt
 *.fff
+!title.pdf

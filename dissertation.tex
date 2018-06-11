@@ -18,25 +18,56 @@
 \input{biblio/bibliopreamble}% Настройки библиографии из внешнего файла (там же выбор: встроенная или на основе biblatex)
 
 \input{Dissertation/inclusioncontrol}    % Управление компиляцией отдельных частей диссертации
+
+\usepackage{enumitem}
+\usepackage{mathabx}
+\usepackage{amsfonts}
+\usepackage[dvipsnames]{xcolor}
+
 \usepackage[section]{placeins}
+\usepackage{pdfpages}
+
+\lstdefinelanguage{Kotlin}{
+	keywords={package, as, as?, typealias, this, super, val, var, fun, for, null, true, false, is, in, throw, return, break, continue, object, if, try, else, while, do, when, class, interface, enum, object, companion, override, public, private, get, set, import, abstract, vararg, expect, actual, where, suspend, data, internal, dynamic, final, by},
+	keywordstyle=\color{NavyBlue}\bfseries,
+	ndkeywords={@Deprecated, @JvmName, @JvmStatic, @JvmOverloads, @JvmField, @JvmSynthetic, Iterable, Int, Long, Integer, Short, Byte, Float, Double, String, Runnable, Array},
+	ndkeywordstyle=\color{BurntOrange}\bfseries,
+	emph={println, return@, forEach, map, mapNotNull, first, filter, firstOrNull, lazy, delegate},
+	emphstyle={\color{OrangeRed}},
+	identifierstyle=\color{black},
+	sensitive=true,
+	commentstyle=\color{gray}\ttfamily,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	stringstyle=\color{ForestGreen}\ttfamily,
+	morestring=[b]",
+	morestring=[s]{"""*}{*"""},
+}
+\usepackage[linesnumbered,titlenotnumbered]{algorithm2e}%псевдокод
 
 \begin{document}
 
 \input{common/renames}                   % Переопределение именований
 
 % Структура диссертации (ГОСТ Р 7.0.11-2011, 4)
-\include{Dissertation/title}           % Титульный лист
+%\include{Dissertation/title}           % Титульный лист
+\includepdf[pages={1}]{title.pdf}
+\include{FormalProcesModel/annotation}
 \include{Dissertation/contents}        % Оглавление
+\include{Dissertation/acronyms}        % Список сокращений и условных обозначений
 \include{Dissertation/introduction}    % Введение
 \include{FormalProcessModel/part1}
+\include{FormalProcessModel/part2}
+\include{FormalProcessModel/part3}
+\include{FormalProcessModel/part4}
 %\include{Dissertation/part1}           % Глава 1
 %\include{Dissertation/part2}           % Глава 2
 %\include{Dissertation/part3}           % Глава 3
 \include{Dissertation/conclusion}      % Заключение
-\include{Dissertation/acronyms}        % Список сокращений и условных обозначений
-\include{Dissertation/dictionary}      % Словарь терминов
+%\include{Dissertation/dictionary}      % Словарь терминов
 \include{Dissertation/references}      % Список литературы
 \include{Dissertation/lists}           % Списки таблиц и изображений (иллюстративный материал)
-\include{Dissertation/appendix}        % Приложения
+\include{FormalProcessModel/appendix}
+%\include{Dissertation/appendix}        % Приложения
 
 \end{document}
